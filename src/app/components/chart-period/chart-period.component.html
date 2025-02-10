@@ -1,0 +1,5 @@
+<mat-chip-listbox (change)="onChange($event)">
+  @for (item of ranges; track item) {
+  <mat-chip-option [selected]="item === value()">{{ item }}</mat-chip-option>
+  }
+</mat-chip-listbox>

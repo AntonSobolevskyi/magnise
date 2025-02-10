@@ -3,11 +3,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve",
+      "name": "Attach to Chrome",
       "type": "chrome",
-      "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "request": "attach",
+      "url": "http://127.0.0.1:4200/"
     },
     {
       "name": "ng test",

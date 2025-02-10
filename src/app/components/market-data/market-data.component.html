@@ -1,0 +1,5 @@
+@if (isConnected()) {
+<span>{{ value().price }}</span>
+<span>{{ instrument()?.profile?.name }}</span>
+<span>{{ value().timestamp | date : 'medium' }}</span>
+}

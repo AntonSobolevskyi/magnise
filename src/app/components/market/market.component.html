@@ -1,0 +1,42 @@
+<form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Provider</mat-label>
+    <mat-select formControlName="provider">
+      @for (item of providers(); track item) {
+      <mat-option [value]="item">{{ item }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Exchange</mat-label>
+    <mat-select formControlName="exchange">
+      @for (item of exchanges(); track item) {
+      <mat-option [value]="item">{{ item }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Instrument</mat-label>
+    <mat-select formControlName="instrument">
+      @for (item of instruments(); track item.id) {
+      <mat-option [value]="item">{{ item.profile.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button [disabled]="formGroup.invalid">
+    Subscribe
+  </button>
+</form>
+
+@if (isConnected()) {
+<app-market-data></app-market-data>
+
+<app-chart-period></app-chart-period>
+
+<div>
+  <app-chart></app-chart>
+</div>
+}
